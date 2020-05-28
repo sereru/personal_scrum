@@ -1,0 +1,19 @@
+<% provide(:title, "新規作成") %>
+<h1>看板新規作成</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@kanban) do |f| %>
+      <%= f.label :content %>
+      <%= f.text_area :content %>
+
+      <%= f.label :stage %>
+      <%= f.number_field :stage %>
+
+      <%= f.label :deadline %>
+      <%= f.datetime_select :deadline , :start_year => Time.now.year, :use_month_numbers => true %>
+
+      <%= f.submit "Create new 看板!", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
