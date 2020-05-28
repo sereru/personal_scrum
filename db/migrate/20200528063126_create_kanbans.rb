@@ -3,7 +3,7 @@ class CreateKanbans < ActiveRecord::Migration[6.0]
     create_table :kanbans do |t|
       t.text :content
       t.integer :stage
-      t.time :deadline
+      t.datetime :deadline
 
       t.timestamps
     end

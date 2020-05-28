@@ -6,6 +6,6 @@ class HomepagesController < ApplicationController
   end
 
   def finish
-    @kanbans = Kanban.where(stage: 4).paginate(page: params[:page])
+    @kanbans = Kanban.where(stage: 5).paginate(page: params[:page])
   end
 end

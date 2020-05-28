@@ -1,2 +1,13 @@
 <% provide(:title, "廃材置き場") %>
+<div class="row">
 <h1>終わった看板を一覧にして置いておくよ</h1>
+  <div class="col-md-8">
+    <% if @kanbans.any? %>
+      <h3>廃材置き場 (<%= @kanbans.count %>)</h3>
+      <ol class="kanbans">
+        <%= render @kanbans %>
+      </ol>
+      <%= will_paginate @kanbans %>
+    <% end %>
+  </div>
+</div>

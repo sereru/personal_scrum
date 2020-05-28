@@ -13,6 +13,16 @@ class KanbansController < ApplicationController
     end
   end
 
+  def update
+    @kanban = Kanban.find(params[:id])
+    @kanban.stage += 1
+    if @kanban.save
+      redirect_to root_path
+    else
+      render root_path
+    end
+  end
+
   private
 
    def kanban_params

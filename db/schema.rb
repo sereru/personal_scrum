@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2020_05_28_063126) do
   create_table "kanbans", force: :cascade do |t|
     t.text "content"
     t.integer "stage"
-    t.time "deadline"
+    t.datetime "deadline"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

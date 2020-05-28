@@ -8,7 +8,7 @@
       <%= f.text_area :content %>
 
       <%= f.label :stage %>
-      <%= f.number_field :stage %>
+      <%= f.number_field :stage , min: 1, max: 5 %>
 
       <%= f.label :deadline %>
       <%= f.datetime_select :deadline , :start_year => Time.now.year, :use_month_numbers => true %>
