@@ -5,4 +5,5 @@
   <span class = "deadline">
     <%= kanban.deadline %>
   </span>
+  <%= link_to "delete", kanban, method: :delete, data: { confirm: "You sure?" } %>
 </li>

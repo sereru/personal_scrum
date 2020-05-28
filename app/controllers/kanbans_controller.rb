@@ -13,6 +13,12 @@ class KanbansController < ApplicationController
     end
   end
 
+  def destroy
+    @kanban = Kanban.find(params[:id])
+    @kanban.destroy
+    redirect_to root_path
+  end
+
   def update
     @kanban = Kanban.find(params[:id])
     @kanban.stage += 1
