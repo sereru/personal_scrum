@@ -6,7 +6,7 @@ class KanbansController < ApplicationController
   def create
     @kanban = Kanban.new(kanban_params)
     if @kanban.save
-      flash[:success] = "看板登録"
+      flash[:success] = "看板登録完了"
       redirect_to root_path
     else
       render 'new'
@@ -23,10 +23,14 @@ class KanbansController < ApplicationController
     @kanban = Kanban.find(params[:id])
     @kanban.stage += 1
     if @kanban.save
-      redirect_to root_path
+      redirect_back fallback_location: root_url
     else
       render root_path
     end
+  end
+
+  def todoes
+    Kanban.where(stage: 1)
   end
 
   private

@@ -1,2 +1,36 @@
 <% provide(:title, "Home") %>
-<h1>スクラムとトリアージでtodoを管理するメインページだよ</h1>
+
+<div class="container">
+  <div class="todo">
+  <h2>todo</h2>
+ <% if @todoes.any? %>
+  <ol class="microposts">
+    <%= render @todoes %>
+  </ol>
+<% end %>
+  </div>
+  <div class="doing">
+  <h2>doing</h2>
+  <% if @doings.any? %>
+  <ol class="microposts">
+    <%= render @doings %>
+  </ol>
+  <% end %>
+  </div>
+  <div class="check">
+  <h2>check</h2>
+  <% if @checkings.any? %>
+  <ol class="microposts">
+    <%= render @checkings %>
+  </ol>
+  <% end %> 
+  </div>
+  <div class="finish">
+  <h2>finish</h2>
+  <% if @finishs.any? %>
+  <ol class="microposts">
+    <%= render @finishs %>
+  </ol>
+  <% end %>
+  </div>
+</div>
