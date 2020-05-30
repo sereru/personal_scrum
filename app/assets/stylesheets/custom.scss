@@ -80,51 +80,65 @@ p {
 /* homepage_container */
 .container {
   display: flex;
+  justify-content: space-around;
+  .todo {
+    width: 20%;
+  }
+  .doing {
+    width: 20%;
+  }
+  .check {
+    width: 20%;
+  }
+  .finish {
+    width: 20%;
+  }
 }
 
-/* microposts */
+/* new */ 
+input, textarea {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
 
-.microposts {
+
+/* kanbans */
+
+.kanbans {
   list-style: none;
   padding: 0;
+  
+  padding-bottom: 30px;
   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
   }
-  .user {
-    margin-top: 5em;
-    padding-top: 0;
+  .kanban-1 {
+    border: 1px solid green;
   }
   .content {
     display: block;
-    margin-left: 60px;
-    img {
-      display: block;
-      padding: 5px 0;
-    }
+    text-align: center;
+    font-size: large;
   }
-  .timestamp {
+  .deadline {
     color: $gray-light;
     display: block;
-    margin-left: 60px;
-  }
-  .gravatar {
-    float: left;
+    text-align: center;
+    margin-left: 10px;
     margin-right: 10px;
-    margin-top: 5px;
+  }
+  .sime {
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  }
+  .delete {
+    display: block;
+    margin-left: 180px;
   }
 }
 
-aside {
-  textarea {
-    height: 100px;
-    margin-bottom: 5px;
-  }
-}
 
-span.picture {
-  margin-top: 10px;
-  input {
-    border: 0;
-  }
-}

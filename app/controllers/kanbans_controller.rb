@@ -29,9 +29,7 @@ class KanbansController < ApplicationController
     end
   end
 
-  def todoes
-    Kanban.where(stage: 1)
-  end
+
 
   private
 

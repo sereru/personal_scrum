@@ -2,8 +2,11 @@
   <span class="content">
     <%= kanban.content %>
   </span>
+  <div id="sime">締め切り</div>
   <span class = "deadline">
     <%= kanban.deadline %>
   </span>
+  <span class = "delete">
   <%= link_to "delete", kanban, method: :delete, data: { confirm: "You sure?" } %>
+  </span>
 </li>
