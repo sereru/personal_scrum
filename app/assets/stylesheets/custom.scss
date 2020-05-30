@@ -135,6 +135,17 @@ input, textarea {
   margin-left: 10px;
   margin-right: 10px;
   }
+
+  .con {
+    display: flex;
+    justify-content: space-between;
+    .next {
+      display:block;
+    }
+    .before { 
+      display: block;
+    }
+  }
   .delete {
     display: block;
     margin-left: 180px;

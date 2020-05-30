@@ -16,10 +16,10 @@ class KanbansController < ApplicationController
   def destroy
     @kanban = Kanban.find(params[:id])
     @kanban.destroy
-    redirect_to root_path
+    redirect_back fallback_location: root_url
   end
 
-  def update
+  def next
     @kanban = Kanban.find(params[:id])
     @kanban.stage += 1
     if @kanban.save
@@ -29,6 +29,15 @@ class KanbansController < ApplicationController
     end
   end
 
+  def before
+    @kanban = Kanban.find(params[:id])
+    @kanban.stage -= 1
+    if @kanban.save
+      redirect_back fallback_location: root_url
+    else
+      render root_path
+    end
+  end
 
 
   private
