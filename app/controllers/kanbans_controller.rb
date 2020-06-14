@@ -39,6 +39,10 @@ class KanbansController < ApplicationController
     end
   end
 
+  def import
+    Kanban.import(params[:file])
+    redirect_to root_url
+  end
 
   private
 

@@ -7,8 +7,8 @@
     <%= kanban.deadline %>
   </span>
   <div class="con">
+   <div><%= button_to 'before', kanbans_before_path, params: { id: kanban.id }, method: :post, class: "before" %></div>
     <div><%= button_to 'next', kanbans_next_path, params: { id: kanban.id }, method: :post, class: "next" %></div>
-    <div><%= button_to 'before', kanbans_before_path, params: { id: kanban.id }, method: :post, class: "before" %></div>
   </div>
   <span class = "delete">
   <%= link_to "delete", kanban, method: :delete, data: { confirm: "You sure?" } %>

@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   get '/new', to: 'kanbans#new'
   post 'kanbans/next'
   post 'kanbans/before'
-  resources :kanbans
+  resources :kanbans do
+    collection {post :import}
+  end
 end

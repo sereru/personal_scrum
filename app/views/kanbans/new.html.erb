@@ -14,5 +14,11 @@
       
       <%= f.submit "Create new 看板!", class: "btn btn-primary" %>
     <% end %>
+    <h2>CSV提出ホーム</h2>
+    <%= form_tag import_kanbans_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "インポート" %>
+    <% end %>
   </div>
+<p>
 </div>
