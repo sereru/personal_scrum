@@ -47,6 +47,6 @@ class KanbansController < ApplicationController
   private
 
    def kanban_params
-      params.require(:kanban).permit(:content, :stage, :deadline)
+      params.require(:kanban).permit(:content, :stage, :deadline, tag_ids: [])
    end
 end

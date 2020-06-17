@@ -6,6 +6,9 @@
   <span class = "deadline">
     <%= kanban.deadline %>
   </span>
+  <% kanban.tags.each do |tag| %>
+    <span class= 'badge badge-primary'><%= tag.name %></span>
+  <% end %>
   <div class="con">
    <div><%= button_to 'before', kanbans_before_path, params: { id: kanban.id }, method: :post, class: "before" %></div>
     <div><%= button_to 'next', kanbans_next_path, params: { id: kanban.id }, method: :post, class: "next" %></div>

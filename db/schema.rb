@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_063126) do
+ActiveRecord::Schema.define(version: 2020_06_17_070630) do
+
+  create_table "kanban_tag_relations", force: :cascade do |t|
+    t.integer "kanban_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["kanban_id"], name: "index_kanban_tag_relations_on_kanban_id"
+    t.index ["tag_id"], name: "index_kanban_tag_relations_on_tag_id"
+  end
 
   create_table "kanbans", force: :cascade do |t|
     t.text "content"
@@ -20,4 +29,12 @@ ActiveRecord::Schema.define(version: 2020_05_28_063126) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "kanban_tag_relations", "kanbans"
+  add_foreign_key "kanban_tag_relations", "tags"
 end

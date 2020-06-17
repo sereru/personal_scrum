@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :kanbans do
     collection {post :import}
   end
+  resources :tags do
+  end
 end

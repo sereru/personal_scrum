@@ -12,6 +12,15 @@
       <%= f.label :deadline %>
       <%= f.datetime_select :deadline , :start_year => Time.now.year, :use_month_numbers => true %>
       
+      <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+        <div class='form-check'>
+          <%= tag.label class: 'form-check-label' do %>
+            <%= tag.text %>
+            <%= tag.check_box class: 'form-check-input' %>
+          <% end %>
+        </div>
+      <% end %>
+
       <%= f.submit "Create new 看板!", class: "btn btn-primary" %>
     <% end %>
     <h2>CSV提出ホーム</h2>
