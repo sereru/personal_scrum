@@ -1,0 +1,7 @@
+<% provide(:title, "タグ一覧") %>
+<div class="row">
+<h1>タグ一覧</h1>
+  <% if @tags.any? %>
+    <%= render @tags %>
+  <% end %>
+</div>
