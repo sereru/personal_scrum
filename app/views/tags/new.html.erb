@@ -1,2 +1,11 @@
-<h1>Tags#new</h1>
-<p>Find me in app/views/tags/new.html.erb</p>
+<% provide(:title, "タグ追加") %>
+<div class="row">
+<h1>タグ追加</h1>
+  <div>
+    <%= form_for(@tag) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.submit "タグ追加", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
