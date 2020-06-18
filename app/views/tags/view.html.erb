@@ -1,0 +1,13 @@
+<% provide(:title, "Tag") %>
+<div class="row">
+<h1>Tag</h1>
+  <div class="col-md-8">
+    <% if @tag_kanbans.any? %>
+      <h3><% @tag.name %> (<%= @tag_kanbans.count %>)</h3>
+      <ol class="kanbans">
+        <%= render @tag_kanbans %>
+      </ol>
+      <%= will_paginate @tag_kanbans %>
+    <% end %>
+  </div>
+</div>

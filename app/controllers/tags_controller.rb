@@ -22,6 +22,17 @@ class TagsController < ApplicationController
     redirect_back fallback_location: root_url
   end
 
+  def come
+    @tag = Tag.find(params[:id])
+    name = @tag.name
+    @kanbantagrelations = KanbanTagRelation.where(tag_id: @tag.id)
+    @tag_kanbans = Kanban.find(@kanbantagrelations.kanban_id)
+    redirect_to root_path
+  end
+
+  def view
+  end
+
   def show
   end
 
