@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'lanes/new'
   root 'homepages#home'
   #get 'homepages/home'
   get 'homepages/new'

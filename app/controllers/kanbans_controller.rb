@@ -20,22 +20,24 @@ class KanbansController < ApplicationController
   end
 
   def next
-    @kanban = Kanban.find(params[:id])
-    @kanban.stage += 1
-    if @kanban.save
+    kanban = Kanban.find(params[:id])
+    @relation = LaneKanbanRelation.find_by(kanban_id: kanban.id)
+    @relation.lane_id += 1
+    if @relation.save
       redirect_back fallback_location: root_url
     else
-      render root_path
+      redirect_to root_url
     end
   end
 
   def before
-    @kanban = Kanban.find(params[:id])
-    @kanban.stage -= 1
-    if @kanban.save
+    kanban = Kanban.find(params[:id])
+    @relation = LaneKanbanRelation.find_by(kanban_id: kanban.id)
+    @relation.lane_id -= 1
+    if @relation.save
       redirect_back fallback_location: root_url
     else
-      render root_path
+      redirect_to root_url
     end
   end
 
@@ -47,6 +49,10 @@ class KanbansController < ApplicationController
   private
 
    def kanban_params
-      params.require(:kanban).permit(:content, :stage, :deadline, tag_ids: [])
+      params.require(:kanban).permit(:content, :deadline, lane_ids: [], tag_ids: [])
+   end
+
+   def lanekanbanrelation_params
+      params.require(:lanekanbanrelation).permit(:lane_id, :kanban_id)
    end
 end

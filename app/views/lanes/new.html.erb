@@ -1,2 +1,15 @@
-<h1>Lanes#new</h1>
-<p>Find me in app/views/lanes/new.html.erb</p>
+<% provide(:title, "レーン追加") %>
+<div class="row">
+<h1>レーン追加</h1>
+  <div>
+    <%= form_for(@lane) do |f| %>
+      <%= f.label :stage %>
+      <%= f.number_field :stage %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.submit "レーン追加", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+</div>

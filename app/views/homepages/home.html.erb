@@ -2,9 +2,11 @@
 
 <div class="container">
   <% @lanes.each do |lane| %>
-    <h2><%=lane.name%></h2>
-    <% if lane.kanbans.any? %>
-      <% lane.kanbans %>
-    <% end %>
+    <div class="lane">
+      <h2><%=lane.name%></h2>
+      <% if lane.kanbans.any? %>
+        <%= render lane.kanbans %>
+      <% end %>
+    </div>
   <% end %>
 </div>

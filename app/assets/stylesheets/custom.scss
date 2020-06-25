@@ -93,6 +93,9 @@ p {
   .finish {
     width: 20%;
   }
+  .lane{
+    width: 20%;
+  }
 }
 
 /* new */ 
@@ -105,51 +108,53 @@ input, textarea {
 
 
 /* kanbans */
-
-.kanbans {
-  list-style: none;
-  padding: 0;
-  
-  padding-bottom: 30px;
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
-  .kanban-1 {
-    border: 1px solid green;
-  }
-  .content {
-    display: block;
-    text-align: center;
-    font-size: large;
-  }
-  .deadline {
-    color: $gray-light;
-    display: block;
-    text-align: center;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  .sime {
+li {
+  padding: 10px 0;
+  border-top: 1px solid #e8e8e8;
+}
+.kanban-1 {
+  border: 1px solid green;
+}
+.content {
+  display: block;
+  text-align: center;
+  font-size: large;
+}
+.deadline {
+  color: $gray-light;
+  display: block;
   text-align: center;
   margin-left: 10px;
   margin-right: 10px;
-  }
+}
+.sime {
+text-align: center;
+margin-left: 10px;
+margin-right: 10px;
+}
 
-  .con {
-    display: flex;
-    justify-content: space-between;
-    .next {
-      display:block;
-    }
-    .before { 
-      display: block;
-    }
+.tag {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.con {
+  display: flex;
+  justify-content: space-between;
+  .next {
+    display:block;
   }
-  .delete {
+  .before { 
     display: block;
-    margin-left: 180px;
   }
 }
+
+.delete {
+  display: block;
+  text-align: right;
+}
+
+
+
 
 

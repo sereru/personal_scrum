@@ -1,4 +1,4 @@
-<li id="kanban-<%= kanban.stage %>">
+<li id="kanban-<%= kanban.id %>">
   <span class="content">
     <%= kanban.content %>
   </span>
@@ -6,9 +6,11 @@
   <span class = "deadline">
     <%= kanban.deadline %>
   </span>
+  <div class="tag">
   <% kanban.tags.each do |tag| %>
     <span class= 'badge badge-primary'><%= tag.name %></span>
   <% end %>
+  </div>
   <div class="con">
    <div><%= button_to 'before', kanbans_before_path, params: { id: kanban.id }, method: :post, class: "before" %></div>
     <div><%= button_to 'next', kanbans_next_path, params: { id: kanban.id }, method: :post, class: "next" %></div>
