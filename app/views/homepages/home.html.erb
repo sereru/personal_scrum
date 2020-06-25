@@ -2,7 +2,9 @@
 
 <div class="container">
   <% @lanes.each do |lane| %>
-    <%=lane.name%>
-
+    <h2><%=lane.name%></h2>
+    <% if lane.kanbans.any? %>
+      <% lane.kanbans %>
+    <% end %>
   <% end %>
 </div>
