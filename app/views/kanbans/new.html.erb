@@ -10,10 +10,17 @@
       <%= f.datetime_select :deadline , :start_year => Time.now.year, :use_month_numbers => true %>
       
       <h3>ステージ</h3>
+    <!-- Todo::collection_radio_buttonに変更 -->
+    <%#rubyを用いたコメントアウト%>
       <%= f.collection_check_boxes(:lane_ids, Lane.order(:stage), :id, :name) do |lane| %>
           <%= lane.label class: 'form-check-label' do %>
-            <%= lane.text %>
-            <%= lane.check_box class: 'form-check-input' %>
+            <% if lane.text == "Todo" %>
+              <%= lane.text %>
+              <%= lane.check_box class: 'form-check-input', checked: true%>
+            <% else %>
+              <%= lane.text %>
+              <%= lane.check_box class: 'form-check-input' %>
+            <% end %>
           <% end %>
       <% end %>
 

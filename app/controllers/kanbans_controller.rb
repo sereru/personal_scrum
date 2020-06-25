@@ -51,8 +51,4 @@ class KanbansController < ApplicationController
    def kanban_params
       params.require(:kanban).permit(:content, :deadline, lane_ids: [], tag_ids: [])
    end
-
-   def lanekanbanrelation_params
-      params.require(:lanekanbanrelation).permit(:lane_id, :kanban_id)
-   end
 end
