@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'lanes/new'
   root 'homepages#home'
   #get 'homepages/home'
   get 'homepages/new'
@@ -12,5 +13,7 @@ Rails.application.routes.draw do
     collection {post :import}
   end
   resources :tags do
+  end
+  resources :lane do
   end
 end

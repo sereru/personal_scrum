@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_17_070630) do
+ActiveRecord::Schema.define(version: 2020_06_25_093257) do
 
   create_table "kanban_tag_relations", force: :cascade do |t|
     t.integer "kanban_id", null: false
@@ -29,6 +29,22 @@ ActiveRecord::Schema.define(version: 2020_06_17_070630) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "lane_kanban_relations", force: :cascade do |t|
+    t.integer "lane_id", null: false
+    t.integer "kanban_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["kanban_id"], name: "index_lane_kanban_relations_on_kanban_id"
+    t.index ["lane_id"], name: "index_lane_kanban_relations_on_lane_id"
+  end
+
+  create_table "lanes", force: :cascade do |t|
+    t.integer "stage", null: false
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -37,4 +53,6 @@ ActiveRecord::Schema.define(version: 2020_06_17_070630) do
 
   add_foreign_key "kanban_tag_relations", "kanbans"
   add_foreign_key "kanban_tag_relations", "tags"
+  add_foreign_key "lane_kanban_relations", "kanbans"
+  add_foreign_key "lane_kanban_relations", "lanes"
 end

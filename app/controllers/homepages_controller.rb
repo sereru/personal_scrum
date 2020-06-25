@@ -1,5 +1,6 @@
 class HomepagesController < ApplicationController
   def home
+    ''' 
     todos_stage = 1
     doings_stage = 2
     checkings_stage = 3
@@ -10,14 +11,18 @@ class HomepagesController < ApplicationController
     @doings = Kanban.where(stage: 2)
     @checkings = Kanban.where(stage: 3)
     @finishs = Kanban.where(stage: 4)
+    '''
+    @lanes = Lane.order(:stage) 
   end
 
   def new
   end
 
   def finish
+    '''
     haizai_stage = 5
     @kanbans = Kanban.where(stage: 5).paginate(page: params[:page])
+    '''
   end
 
 
