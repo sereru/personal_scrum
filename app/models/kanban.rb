@@ -21,6 +21,6 @@ class Kanban < ApplicationRecord
 
   # 更新を許可するカラムを定義
   def self.updatable_attributes
-    ["content", "stage", "deadline"]
+    ["content", "deadline", "lane_ids"]
   end
 end

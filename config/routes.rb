@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   end
   resources :tags do
   end
-  resources :lane do
+  resources :lanes do
   end
 end

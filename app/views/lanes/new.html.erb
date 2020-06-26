@@ -10,6 +10,11 @@
       <%= f.text_field :name %>
       <%= f.submit "レーン追加", class: "btn btn-primary" %>
     <% end %>
+    <h2>現在のレーンのステージ
+     <% @lanes.each do |l| %>
+      <%= l.stage%>
+      <%= l.name%>
+     <% end %>
   </div>
 
 </div>
