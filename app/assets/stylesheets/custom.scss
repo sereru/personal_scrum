@@ -81,21 +81,14 @@ p {
 .container {
   display: flex;
   justify-content: space-around;
-  .todo {
-    width: 20%;
-  }
-  .doing {
-    width: 20%;
-  }
-  .check {
-    width: 20%;
-  }
-  .finish {
-    width: 20%;
-  }
   .lane{
     width: 20%;
   }
+}
+
+/* fish_container */
+.lane_finish {
+  width: 20%;
 }
 
 /* new */ 

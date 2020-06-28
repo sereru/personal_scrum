@@ -12,18 +12,9 @@
       <h3>ステージ</h3>
     <!-- Todo::collection_radio_buttonに変更 -->
     <%#rubyを用いたコメントアウト%>
-      <%= f.collection_check_boxes(:lane_ids, Lane.order(:stage), :id, :name) do |lane| %>
-          <%= lane.label class: 'form-check-label' do %>
-            <% if lane.text == "Todo" %>
-              <%= lane.text %>
-              <%= lane.check_box class: 'form-check-input', checked: true%>
-            <% else %>
-              <%= lane.text %>
-              <%= lane.check_box class: 'form-check-input' %>
-            <% end %>
-          <% end %>
-      <% end %>
-
+      <div>
+      <%= f.collection_radio_buttons(:lane_ids, Lane.order(:stage), :id, :name) %>
+      </div>
       <h3>タグ</h3>
       <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
         <div class='form-check'>
