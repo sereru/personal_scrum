@@ -1,6 +1,7 @@
 class LanesController < ApplicationController
   def new
     @lane = Lane.new
+    @max = Lane.count - 1
     @lanes = Lane.order(:stage)
   end
 
@@ -24,6 +25,18 @@ class LanesController < ApplicationController
       redirect_to 'tags/new'
 
     end
+  end
+
+  def destroy
+    @lane = Lane.find(params[:id])
+    st = @lane.stage
+    changelanes = Lane.where("? < stage", st-1)
+    changelanes.each do |clane|
+      clane.stage -= 1
+      clane.save
+    end
+    @lane.destroy
+    redirect_back fallback_location: root_url
   end
 
   private

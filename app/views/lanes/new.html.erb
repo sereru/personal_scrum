@@ -4,16 +4,17 @@
   <div>
     <%= form_for(@lane) do |f| %>
       <%= f.label :stage %>
-      <%= f.number_field :stage %>
+      <%= f.number_field :stage, min: 1, max: @max %>
 
       <%= f.label :name %>
       <%= f.text_field :name %>
       <%= f.submit "レーン追加", class: "btn btn-primary" %>
     <% end %>
-    <h2>現在のレーンのステージ
+    <h2>現在のレーンのステージ</h2>
      <% @lanes.each do |l| %>
-      <%= l.stage%>
+      <%= l.stage%> 
       <%= l.name%>
+      <%= link_to "delete", l, method: :delete, data: { confirm: "You sure?" } %>
      <% end %>
   </div>
 
