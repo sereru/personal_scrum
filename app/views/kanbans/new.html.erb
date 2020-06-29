@@ -10,8 +10,7 @@
       <%= f.datetime_select :deadline , :start_year => Time.now.year, :use_month_numbers => true %>
       
       <h3>ステージ</h3>
-    <!-- Todo::collection_radio_buttonに変更 -->
-    <%#rubyを用いたコメントアウト%>
+    <%#radio_buttonsをラベル,ボタンの順になるようにする%>
       <div>
       <%= f.collection_radio_buttons(:lane_ids, Lane.order(:stage), :id, :name) %>
       </div>

@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     collection {post :import}
   end
   resources :tags do
+    collection {post :import}
   end
   resources :lanes do
+    collection {post :import}
   end
 end

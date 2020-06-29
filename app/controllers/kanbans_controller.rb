@@ -5,6 +5,7 @@ class KanbansController < ApplicationController
 
   def create
     @kanban = Kanban.new(kanban_params)
+    puts @kanban
     if @kanban.save
       flash[:success] = "看板登録完了"
       redirect_to root_path
@@ -49,6 +50,6 @@ class KanbansController < ApplicationController
   private
 
    def kanban_params
-      params.require(:kanban).permit(:content, :deadline, lane_ids: [], tag_ids: [])
+      params.require(:kanban).permit(:content, :deadline, :lane_ids, tag_ids: [])
    end
 end
