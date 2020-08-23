@@ -23,7 +23,10 @@ class KanbansController < ApplicationController
   def next
     kanban = Kanban.find(params[:id])
     @relation = LaneKanbanRelation.find_by(kanban_id: kanban.id)
-    @relation.lane_id += 1
+    now_line = Lane.find_by(id: @relation.lane_id)
+    next_stage = now_line.stage + 1
+    next_lane = Lane.find_by(stage: next_stage)
+    @relation.lane_id = next_lane.id
     if @relation.save
       redirect_back fallback_location: root_url
     else
@@ -34,7 +37,10 @@ class KanbansController < ApplicationController
   def before
     kanban = Kanban.find(params[:id])
     @relation = LaneKanbanRelation.find_by(kanban_id: kanban.id)
-    @relation.lane_id -= 1
+    now_line = Lane.find_by(id: @relation.lane_id)
+    before_stage = now_line.stage - 1
+    before_lane = Lane.find_by(stage: before_stage)
+    @relation.lane_id = before_lane.id
     if @relation.save
       redirect_back fallback_location: root_url
     else
